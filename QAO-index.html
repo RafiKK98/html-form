@@ -185,18 +185,17 @@
       </button>
     </main>
     <script>
-      document
-        .getElementById("qao-form")
-        .addEventListener("submit", (event) => {
-          event.preventDefault();
-          const qaoId = document.getElementById("qao-id").value;
-          const qaoName = document.getElementById("qao-name").value;
-          console.log(qaoId, qaoName);
-          const savedData = JSON.parse(localStorage.getItem("qaoData") || "[]");
-          savedData.push({ id: qaoId, name: qaoName });
-          localStorage.setItem("qaoData", JSON.stringify(savedData));
-          alert("QAO details saved successfully!");
-        });
+      const qaoForm = document.getElementById("qao-form");
+      qaoForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const qaoId = document.getElementById("qao-id").value;
+        const qaoName = document.getElementById("qao-name").value;
+        console.log(qaoId, qaoName);
+        const savedData = JSON.parse(localStorage.getItem("qaoData") || "[]");
+        savedData.push({ id: qaoId, name: qaoName });
+        localStorage.setItem("qaoData", JSON.stringify(savedData));
+        alert("QAO details saved successfully!");
+      });
 
       document
         .getElementById("view-saved-ids")
